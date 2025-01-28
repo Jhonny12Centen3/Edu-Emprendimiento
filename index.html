@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Educativa de Emprendimiento y Gestión</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fa;
+            height: auto;
+            min-height: 100vh;
+            overflow-y: auto;
+        }
+
+        /* Estilos del menú lateral */
+        nav {
+            background-color: #005bb5;
+            width: 250px;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            padding-top: 20px;
+        }
+
+        nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            font-weight: 600;
+            border-bottom: 1px solid #004d99;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #003366;
+        }
+
+        /* Submenú */
+        .has-submenu {
+            position: relative;
+        }
+
+        .submenu {
+            display: none;
+            background-color: #004d99;
+            position: absolute;
+            top: 0;
+            left: 250px;
+            min-width: 200px;
+            padding: 0;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .submenu a {
+            padding-left: 30px;
+            font-weight: 500;
+            border-bottom: none;
+        }
+
+        .submenu a:hover {
+            background-color: #003366;
+        }
+
+        /* Mostrar submenú al pasar el ratón */
+        .has-submenu:hover .submenu {
+            display: block;
+        }
+
+        /* Estilos del contenido principal */
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        .section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .section.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .section h1 {
+            color: #005bb5;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            color: #333;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 800px;
+        }
+
+        /* Estilo del cuadro de comentario */
+        #contactForm {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #f4f9ff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #contactForm label {
+            font-weight: bold;
+            color: #005bb5;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        #contactForm input,
+        #contactForm textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #contactForm input:focus,
+        #contactForm textarea:focus {
+            border-color: #005bb5;
+            box-shadow: 0 0 5px rgba(0, 91, 181, 0.5);
+            outline: none;
+        }
+
+        #contactForm button {
+            background-color: #005bb5;
+            color: white;
+            padding: 10px 15px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #contactForm button:hover {
+            background-color: #004080;
+        }
+
+        #contactForm button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+    <!-- Menú de navegación -->
+    <nav>
+        <a href="#" onclick="showSection('inicio')">Inicio</a>
+        <div class="has-submenu">
+            <a href="#">Módulos</a>
+            <div class="submenu">
+                <a href="#" onclick="showSection('plan-negocios')">Creación de un plan de negocios</a>
+                <a href="#" onclick="showSection('administracion-recursos')">Administración efectiva de recursos</a>
+                <a href="#" onclick="showSection('finanzas-basicas')">Finanzas básicas para emprendedores</a>
+                <a href="#" onclick="showSection('liderazgo-equipos')">Estrategias de liderazgo en equipos</a>
+            </div>
+        </div>
+        <a href="#" onclick="showSection('contacto')">Contacto</a>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="content">
+    <!-- Sección Inicio -->
+<div id="inicio" class="section active">
+    <h1>Bienvenido a Nuestra Página Educativa</h1>
+    <p>
+        Sabemos lo desafiante que puede ser adentrarse en el mundo del emprendimiento y la gestión. Entender conceptos financieros, diseñar un plan de negocios o liderar un equipo con éxito no es tarea sencilla. Pero aquí estamos para ayudarte. Esta página ha sido creada con el objetivo de hacer que el aprendizaje sea más accesible, práctico y relevante para ti. 
+    </p>
+    <p>
+        Nuestro compromiso es acompañarte en este camino, ofreciéndote herramientas, conocimientos y ejemplos prácticos para que puedas llevar tus ideas a la acción. No importa si estás comenzando con una idea básica o ya tienes experiencia en el mundo del emprendimiento: aquí encontrarás lo necesario para dar el siguiente paso con confianza.
+    </p>
+
+    <h2>¿Qué encontrarás en nuestros módulos?</h2>
+    <ul>
+        <li>
+            <strong>Creación de un plan de negocios:</strong> Aprende a estructurar tus ideas en un documento claro y organizado que te permita presentar tu visión a inversores, socios o equipos de trabajo. 
+            <br>Por ejemplo: ¿Tienes una idea para un café comunitario? Aprende cómo detallar el costo de insumos, estrategias de marketing y proyecciones financieras.
+        </li>
+        <li>
+            <strong>Administración efectiva de recursos:</strong> Optimiza el uso de tu tiempo, dinero y equipo humano. Descubre cómo identificar lo esencial y eliminar lo innecesario.
+            <br>Por ejemplo: ¿Tienes un presupuesto ajustado y necesitas decidir entre comprar equipo nuevo o invertir en publicidad? Este módulo te ayuda a tomar decisiones inteligentes.
+        </li>
+        <li>
+            <strong>Finanzas básicas para emprendedores:</strong> Conoce los conceptos esenciales como ingresos, gastos, margen de ganancia y flujo de caja. ¡No más dolores de cabeza con números!
+            <br>Por ejemplo: ¿Te preguntas cuánto debes cobrar por tu producto para cubrir costos y obtener ganancias? Aquí aprenderás a calcularlo.
+        </li>
+        <li>
+            <strong>Estrategias de liderazgo en equipos:</strong> Aprende a liderar, motivar y comunicarte efectivamente con tu equipo. Un buen líder crea un ambiente donde todos pueden brillar.
+            <br>Por ejemplo: ¿Sientes que tus reuniones de equipo no logran resultados? Este módulo te enseña a organizarlas para que sean productivas y motivadoras.
+        </li>
+    </ul>
+
+    <h2>¿Por qué aprender con nosotros es genial?</h2>
+    <p>
+        Aprender estos módulos no solo te dará conocimiento teórico; te permitirá aplicarlo en tu día a día. Imagina gestionar tus finanzas personales de manera más eficiente, organizar mejor tu tiempo y liderar con confianza cualquier proyecto en el que participes. ¡Las oportunidades son infinitas!
+    </p>
+    <p>
+        Además, cada tema está diseñado con ejemplos cotidianos para que puedas relacionarte fácilmente con lo que aprendes. Queremos que te lleves algo más que conceptos: queremos que adquieras habilidades prácticas que marquen una diferencia real en tu vida.
+    </p>
+
+    <h2>Queremos saber de ti</h2>
+    <p>
+        En la sección de <strong>Contacto</strong>, puedes escribirnos tus comentarios, preguntas o sugerencias. Si prefieres, también puedes comunicarte con nosotros a través de nuestro correo electrónico o por WhatsApp. Estamos aquí para escucharte y ayudarte en lo que necesites.
+    </p>
+    <p>
+        No importa cómo decidas contactarnos, siempre tendrás nuestro apoyo. Este es tu espacio para aprender, crecer y avanzar. ¡Te damos la bienvenida a esta emocionante aventura!
+    </p>
+</div>
+
+       <!-- Sección Creación de un plan de negocios -->
+<div id="plan-negocios" class="section">
+    <h1>Creación de un Plan de Negocios</h1>
+    <h2>¿Qué es un Plan de Negocios?</h2>
+    <p>Un plan de negocios es un documento que describe los objetivos de tu emprendimiento, la estrategia para alcanzarlos y los recursos necesarios. Es tu mapa para guiar tu negocio hacia el éxito. Además, es esencial si necesitas financiamiento, ya que muestra a los inversores o bancos que tu idea es viable.</p>
+
+    <h2>Partes de un Plan de Negocios</h2>
+    <h3>Resumen Ejecutivo</h3>
+    <p>Una descripción breve y clara de tu negocio. Incluye el propósito, los objetivos principales y una visión general.</p>
+    <p><strong>Ejemplo cotidiano:</strong> Imagínate explicándole tu idea a un amigo en menos de dos minutos. Este es tu resumen ejecutivo.</p>
+
+    <h3>Análisis del Mercado</h3>
+    <p>Entender a tu público objetivo y a tu competencia. ¿Quiénes son tus clientes? ¿Qué problemas tienen que tu producto o servicio puede resolver?</p>
+    <p><strong>Ejemplo cotidiano:</strong> Si vas a abrir una cafetería, investiga cuántas cafeterías hay cerca, qué venden y cuánto cobran. Luego, analiza qué hace que tus clientes potenciales prefieran una cafetería sobre otra.</p>
+
+    <h3>Propuesta de Valor</h3>
+    <p>¿Qué hace a tu negocio único? ¿Por qué alguien debería elegir tu producto o servicio?</p>
+    <p><strong>Ejemplo cotidiano:</strong> Si ofreces delivery de comida casera, tu propuesta podría ser: "Comida nutritiva y hecha como en casa, entregada en menos de 30 minutos".</p>
+
+    <h3>Estrategia de Marketing y Ventas</h3>
+    <p>¿Cómo harás llegar tu producto o servicio a los clientes? Incluye precios, promociones, distribución y canales de venta.</p>
+    <p><strong>Ejemplo cotidiano:</strong> ¿Qué redes sociales usarás? ¿Harás descuentos para clientes nuevos?</p>
+
+    <h3>Proyecciones Financieras</h3>
+    <p>Incluye los costos iniciales, los ingresos esperados y cuándo planeas alcanzar el punto de equilibrio (cuando tus ingresos cubran tus costos).</p>
+    <p><strong>Ejemplo cotidiano:</strong> Si planeas vender postres, calcula cuánto gastas en ingredientes y utensilios versus cuánto cobrarás por cada postre.</p>
+
+    <h2>Ejemplo Completo</h2>
+    <p>Supongamos que quieres abrir una tienda de productos sostenibles. Tu plan podría incluir:</p>
+    <ul>
+        <li>Un resumen ejecutivo que explique tu compromiso con el medio ambiente.</li>
+        <li>Un análisis del mercado que muestre la creciente demanda de productos ecológicos.</li>
+        <li>Una propuesta de valor como: "Productos ecológicos a precios accesibles para todos".</li>
+        <li>Una estrategia de marketing basada en redes sociales y ferias locales.</li>
+        <li>Proyecciones financieras que indiquen que recuperarás tu inversión inicial en un año.</li>
+    </ul>
+
+    <h2>Preguntas Frecuentes</h2>
+    <h3>¿Es necesario hacer un plan si mi negocio es pequeño?</h3>
+    <p>¡Sí! Incluso una versión simplificada puede ayudarte a mantener el enfoque.</p>
+
+    <h3>¿Qué pasa si no sé mucho de números?</h3>
+    <p>Usa herramientas gratuitas como plantillas de Excel para organizar tus finanzas o pide ayuda a un contador.</p>
+
+    <h3>¿Cuánto tiempo toma hacer un plan de negocios?</h3>
+    <p>Depende de la complejidad de tu negocio. Puede tomar desde una semana para ideas simples hasta varios meses para proyectos más grandes.</p>
+</div>
+
+
+<div id="administracion-recursos" class="section">
+    <h1>Administración Efectiva de Recursos</h1>
+    <h2>¿Qué es la Administración de Recursos?</h2>
+    <p>Es la habilidad de usar eficientemente el tiempo, el dinero y los materiales disponibles para alcanzar tus objetivos. Administrar recursos no solo aplica a empresas grandes, sino también a pequeños negocios y la vida cotidiana.</p>
+
+    <h2>Claves de la Administración de Recursos</h2>
+    <h3>Organización del Tiempo</h3>
+    <p>Prioriza tareas importantes, evita distracciones y utiliza herramientas como calendarios o aplicaciones.</p>
+    <p><strong>Ejemplo cotidiano:</strong> Si tienes un puesto de comida, dedica las mañanas a cocinar y las tardes a vender.</p>
+
+    <h3>Gestión del Dinero</h3>
+    <p>Divide tus ingresos en: costos fijos, costos variables, ahorros e inversión.</p>
+    <p><strong>Ejemplo cotidiano:</strong> Si vendes joyería artesanal, destina un porcentaje de las ventas para comprar materiales, otro para publicidad y guarda un poco como ganancia personal.</p>
+
+    <h3>Uso Eficiente de Materiales</h3>
+    <p>Reduce desperdicios y reutiliza materiales siempre que sea posible.</p>
+    <p><strong>Ejemplo cotidiano:</strong> Usa cajas recicladas para empaquetar tus productos, ahorrando dinero y cuidando el medio ambiente.</p>
+
+    <h2>Ejemplo Completo</h2>
+    <p>Supongamos que tienes un negocio de organización de eventos. Administra tus recursos así:</p>
+    <ul>
+        <li>Planifica un calendario detallado para cada evento.</li>
+        <li>Negocia precios con proveedores para reducir costos.</li>
+        <li>Compra solo los materiales necesarios y busca formas de reutilizar decoración.</li>
+    </ul>
+
+    <h2>Preguntas Frecuentes</h2>
+    <h3>¿Cómo evito gastar más de lo necesario?</h3>
+    <p>Crea un presupuesto antes de cualquier gasto y respétalo.</p>
+
+    <h3>¿Qué herramientas puedo usar?</h3>
+    <p>Usa apps como Trello para organizar tareas o Google Sheets para registrar gastos.</p>
+
+    <h3>¿Qué hago si no tengo suficientes recursos?</h3>
+    <p>Prioriza lo esencial y busca maneras creativas de hacer más con menos.</p>
+</div>
+
+
+<div id="finanzas-basicas" class="section">
+    <h1>Finanzas Básicas para Emprendedores</h1>
+
+    <h2>Conceptos Fundamentales</h2>
+    <h3>Ingresos y Egresos</h3>
+    <p>Los ingresos son el dinero que entra a tu negocio; los egresos, lo que sale.</p>
+    <p><strong>Ejemplo cotidiano:</strong> Si vendes 10 pasteles por $10 cada uno, tus ingresos son $100. Si gastaste $40 en ingredientes, tus egresos son $40.</p>
+
+    <h3>Punto de Equilibrio</h3>
+    <p>Es el momento en el que tus ingresos igualan tus costos.</p>
+    <p><strong>Ejemplo cotidiano:</strong> Si tus costos son $200 al mes, necesitas vender $200 para no perder dinero.</p>
+
+    <h3>Margen de Ganancia</h3>
+    <p>Es lo que ganas después de cubrir tus costos.</p>
+    <p><strong>Ejemplo cotidiano:</strong> Si vendes un producto a $50 y te cuesta $30 hacerlo, tu ganancia es $20.</p>
+
+    <h2>Ejemplo Completo</h2>
+    <p>Si tienes un negocio de velas artesanales:</p>
+    <ul>
+        <li>Calcula que cada vela cuesta $10 de material.</li>
+        <li>Véndelas a $25 para ganar $15 por vela.</li>
+        <li>Si necesitas $300 para cubrir costos mensuales, debes vender al menos 20 velas al mes.</li>
+    </ul>
+
+    <h2>Preguntas Frecuentes</h2>
+    <h3>¿Qué pasa si mis ingresos son variables?</h3>
+    <p>Mantén un fondo de emergencia para cubrir meses bajos.</p>
+
+    <h3>¿Cómo sé cuánto cobrar?</h3>
+    <p>Calcula tus costos y añade un margen de ganancia razonable.</p>
+
+    <h3>¿Debo separar mis finanzas personales del negocio?</h3>
+    <p>¡Sí! Es fundamental para llevar un control claro.</p>
+</div>
+
+
+        <!-- Sección Estrategias de liderazgo en equipos -->
+        <div id="liderazgo-equipos" class="section">
+            <h1>Estrategias de Liderazgo en Equipos</h1>
+        
+            <h2>¿Qué es el Liderazgo?</h2>
+            <p>Liderazgo es la capacidad de guiar a un grupo hacia un objetivo común, inspirándolos y motivándolos.</p>
+        
+            <h2>Estrategias Clave</h2>
+        
+            <h3>Comunicación Clara</h3>
+            <p>Sé transparente sobre metas y expectativas.</p>
+            <p><strong>Ejemplo cotidiano:</strong> Si organizas un evento, asigna tareas específicas y verifica que todos las comprendan.</p>
+        
+            <h3>Empatía</h3>
+            <p>Entiende las necesidades de tu equipo y ofréceles apoyo.</p>
+            <p><strong>Ejemplo cotidiano:</strong> Si alguien tiene un problema personal, ofrécele flexibilidad en su horario.</p>
+        
+            <h3>Reconocimiento</h3>
+            <p>Celebra los logros, por pequeños que sean.</p>
+            <p><strong>Ejemplo cotidiano:</strong> Felicita a alguien que tuvo una buena idea o completó una tarea antes de tiempo.</p>
+        
+            <h2>Ejemplo Completo</h2>
+            <p>Supongamos que diriges una pequeña empresa. Tus estrategias pueden incluir:</p>
+            <ul>
+                <li>Realizar reuniones semanales para revisar avances.</li>
+                <li>Proveer retroalimentación constructiva.</li>
+                <li>Crear un ambiente donde todos se sientan valorados.</li>
+            </ul>
+        
+            <h2>Preguntas Frecuentes</h2>
+        
+            <h3>¿Qué hago si alguien no cumple con su trabajo?</h3>
+            <p>Habla con ellos en privado, entiende las razones y busca soluciones.</p>
+        
+            <h3>¿Cómo mantengo al equipo motivado?</h3>
+            <p>Establece metas alcanzables y recompensa los logros.</p>
+        
+            <h3>¿Debo ser amigo de mi equipo?</h3>
+            <p>Es bueno ser cercano, pero también mantener límites profesionales.</p>
+        </div>
+        
+
+        <!-- Sección Contacto -->
+        <div id="contacto" class="section">
+            <h1>Contacto</h1>
+            <p>Sabemos que aprender sobre emprendimiento y gestión puede ser un desafío, pero no estás solo. Estamos aquí para ayudarte en cada paso de tu camino. Si tienes alguna duda, necesitas más información sobre algún módulo o simplemente quieres compartir tus ideas, estaremos encantados de escucharte y apoyarte.</p>
+            <p>No dudes en escribirnos. Queremos que sientas que tienes un equipo que te respalda en tu aprendizaje. ¡Tu éxito también es nuestro éxito!</p>
+            <p><strong>Contáctanos a través de los siguientes medios:</strong></p>
+            <ul>
+                <li><strong>WhatsApp:</strong> <a href="https://wa.me/593987654321" target="_blank">+593 987 654 321</a></li>
+                <li><strong>Correo electrónico:</strong> <a href="mailto:soporte@educativa.com">soporte@educativa.com</a></li>
+            </ul>
+            <h2>Déjanos tu comentario</h2>
+            <form id="contactForm" onsubmit="return validateForm()">
+                <label for="name">Nombre:</label><br>
+                <input type="text" id="name" name="name" placeholder="Ingresa tu nombre" required><br><br>
+                <label for="email">Correo electrónico:</label><br>
+                <input type="email" id="email" name="email" placeholder="Ingresa tu correo" required><br><br>
+                <label for="message">Comentario:</label><br>
+                <textarea id="message" name="message" rows="5" placeholder="Escribe tu comentario o pregunta aquí" required></textarea><br><br>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Función para mostrar las secciones
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // Validar formulario
+        function validateForm() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !email || !message) {
+                alert('Por favor, completa todos los campos.');
+                return false;
+            }
+
+            alert('¡Gracias por tu comentario! Nos pondremos en contacto contigo pronto.');
+            return true;
+        }
+    </script>
+</body>
+</html>
